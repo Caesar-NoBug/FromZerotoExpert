@@ -10,6 +10,7 @@ public class MyController {
 
     @GetMapping
     public String start(){
+        //麻了
         return "index.html";
     }
 }
