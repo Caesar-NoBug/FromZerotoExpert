@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="../js/axios-0.18.0.js"></script>
+    <script src="../js/vue.js"></script>
+
+    <div id="app">
+        <form>
+            用户名: <input type="text" name="username" v-model="user.username"><br>
+            密码: <input type="password" name="password" v-model="user.password"><br>
+            <button @click="register">注册</button>
+        </form>
+    </div>
+
+    <script>
+
+        new Vue({
+            el:"#app",
+            data(){
+                return {
+                    user: {
+                        username: "",
+                        password: ""
+                    }
+                }
+            },
+            methods: {
+
+                register(){
+                    axios.post("http://localhost:8080/FromZerotoExpert/register",
+                        this.user).then(function (resp){
+                        alert(resp.data);
+                    })
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>
